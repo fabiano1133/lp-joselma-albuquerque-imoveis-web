@@ -12,7 +12,7 @@ import { Textarea } from "@/components/ui/textarea";
 import { SITE_IMOVEIS_URL, OFFICE_INFO } from "@/lib/constants";
 import { contactService } from "@/lib/api/contact-service";
 import { MapPin, Clock, Phone, Mail, ExternalLink } from "lucide-react";
-import { trackConversion } from "@/lib/analytics";
+import { trackConversion, trackButtonClick } from "@/lib/analytics";
 
 const formSchema = z.object({
   nome: z.string().min(2, "Nome deve ter pelo menos 2 caracteres"),
