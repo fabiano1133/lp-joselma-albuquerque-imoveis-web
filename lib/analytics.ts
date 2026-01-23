@@ -1,0 +1,55 @@
+// Google Analytics Configuration
+export const GA_MEASUREMENT_ID = "G-YBRHVE3CRT";
+
+// Função para inicializar o Google Analytics
+export function initGA() {
+  if (typeof window !== "undefined") {
+    window.dataLayer = window.dataLayer || [];
+    function gtag(...args: any[]) {
+      window.dataLayer.push(args);
+    }
+    gtag("js", new Date());
+    gtag("config", GA_MEASUREMENT_ID, {
+      page_path: window.location.pathname,
+    });
+  }
+}
+
+// Função para trackear eventos customizados
+export function trackEvent(
+  action: string,
+  category: string,
+  label?: string,
+  value?: number
+) {
+  if (typeof window !== "undefined" && (window as any).gtag) {
+    (window as any).gtag("event", action, {
+      event_category: category,
+      event_label: label,
+      value: value,
+    });
+  }
+}
+
+// Função para trackear conversões (formulário enviado)
+export function trackConversion() {
+  trackEvent("conversion", "form", "formulario_contato_enviado", 1);
+}
+
+// Função para trackear cliques em botões
+export function trackButtonClick(buttonName: string) {
+  trackEvent("click", "button", buttonName);
+}
+
+// Função para trackear visualizações de seções
+export function trackSectionView(sectionName: string) {
+  trackEvent("view", "section", sectionName);
+}
+
+// Declaração de tipos para TypeScript
+declare global {
+  interface Window {
+    dataLayer: any[];
+    gtag: (...args: any[]) => void;
+  }
+}

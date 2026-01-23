@@ -3,6 +3,7 @@
 import Image from "next/image";
 import { Button } from "@/components/ui/button";
 import { SITE_IMOVEIS_URL } from "@/lib/constants";
+import { trackButtonClick } from "@/lib/analytics";
 import { 
   ShoppingCart, 
   Home, 
@@ -14,6 +15,7 @@ import {
 
 export function TiposImoveisSection() {
   const goToImoveis = () => {
+    trackButtonClick("tipos_imoveis_ver_todos");
     window.open(SITE_IMOVEIS_URL, "_blank");
   };
   const tipos = [

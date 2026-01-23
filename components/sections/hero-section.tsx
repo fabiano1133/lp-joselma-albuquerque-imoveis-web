@@ -3,14 +3,17 @@
 import Image from "next/image";
 import { Button } from "@/components/ui/button";
 import { SITE_IMOVEIS_URL } from "@/lib/constants";
+import { trackButtonClick } from "@/lib/analytics";
 
 export function HeroSection() {
   const scrollToForm = () => {
+    trackButtonClick("hero_cta_orientacao");
     const formSection = document.getElementById("formulario-diagnostico");
     formSection?.scrollIntoView({ behavior: "smooth" });
   };
 
   const goToImoveis = () => {
+    trackButtonClick("hero_cta_ver_imoveis");
     window.open(SITE_IMOVEIS_URL, "_blank");
   };
 
