@@ -134,6 +134,15 @@ export default function RootLayout({
         <Script
           src={`https://www.googletagmanager.com/gtag/js?id=${GA_MEASUREMENT_ID}`}
           strategy="afterInteractive"
+          onLoad={() => {
+            // Verifica se o script carregou corretamente
+            if (typeof window !== "undefined" && (window as any).gtag) {
+              console.log("Google Analytics carregado com sucesso");
+            }
+          }}
+          onError={(e) => {
+            console.error("Erro ao carregar Google Analytics:", e);
+          }}
         />
         <Script
           id="google-analytics"
@@ -145,6 +154,9 @@ export default function RootLayout({
               gtag('js', new Date());
               gtag('config', '${GA_MEASUREMENT_ID}', {
                 page_path: window.location.pathname,
+                page_location: window.location.href,
+                send_page_view: true,
+                cookie_flags: 'SameSite=None;Secure',
               });
             `,
           }}
