@@ -25,13 +25,15 @@ export function TiposImoveisSection() {
         "Imóveis novos e usados para compra. Análise criteriosa de cada opção.",
       icon: ShoppingCart,
       image: "/venda.jpg", // Adicione a imagem na pasta public
+      path: "imoveis/a-venda",
     },
     {
       title: "Aluguel",
       description:
         "Encontre o imóvel ideal para alugar, com segurança e transparência.",
       icon: Key,
-      image: "/aluguel.jpg", // Adicione a imagem na pasta public
+      image: "/aluguel.jpg",
+      path: "imoveis/para-alugar",
     },
     {
       title: "Novos",
@@ -39,6 +41,7 @@ export function TiposImoveisSection() {
         "Lançamentos e imóveis na planta. Análise de construtora e projeto.",
       icon: Building2,
       image: "/novos.jpg", // Adicione a imagem na pasta public
+      path: "apartamento-belem-2-quartos-70-m/AP0088-JOSP",
     },
     {
       title: "Usados",
@@ -46,22 +49,7 @@ export function TiposImoveisSection() {
         "Imóveis prontos para morar. Verificação completa de documentação.",
       icon: Home,
       image: "/usados.jpg", // Adicione a imagem na pasta public
-    },
-    {
-      title: "Investimento",
-      description:
-        "Análise de potencial de valorização e retorno financeiro.",
-      highlight: true, // Destacar com cor do Criador
-      icon: TrendingUp,
-      image: "/imovel-investimento.jpg", // Adicione a imagem na pasta public
-    },
-    {
-      title: "Moradia",
-      description:
-        "Foco no seu projeto de vida e necessidades pessoais.",
-      highlight: true, // Destacar com cor do Criador
-      icon: Heart,
-      image: "/imovel-moradia.jpg", // Adicione a imagem na pasta public
+      path: "imoveis/a-venda?caracteristicas=em-condominio-fechado",
     },
   ];
 
@@ -79,13 +67,18 @@ export function TiposImoveisSection() {
 
         <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
           {tipos.slice(0, 4).map((tipo, index) => {
+            const handleSaibaMais = (path: string) => {
+              trackButtonClick(`tipos_imoveis_saiba_mais_${tipo.title.toLowerCase()}`);
+              window.open(`${SITE_IMOVEIS_URL}/${path}`, "_blank");
+            };
+
             return (
               <div
                 key={index}
-                className="group relative h-64 rounded-lg overflow-hidden shadow-xl hover:shadow-2xl transition-all duration-300 hover:scale-105"
+                className="relative h-64 rounded-lg overflow-hidden shadow-xl"
               >
                 {/* Background gradiente de fallback */}
-                <div className="absolute inset-0 bg-gradient-to-br from-amber-200 via-amber-100 to-amber-200"></div>
+                <div className="absolute inset-0 bg-gradient-to-br from-[#C9A14A] via-[#B8913F] to-[#C9A14A]"></div>
                 
                 {/* Imagem de imóvel */}
                 <div className="absolute inset-0">
@@ -96,12 +89,22 @@ export function TiposImoveisSection() {
                     className="object-cover"
                     style={{ objectPosition: 'center' }}
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-[#0A2540]/90 via-[#0A2540]/70 to-transparent"></div>
                 </div>
-                <div className="absolute bottom-0 left-0 right-0 p-6 z-10">
-                  <h3 className="font-heading text-xl font-bold text-white">
+                {/* Badge no canto superior direito */}
+                <div className="absolute top-4 right-4 z-10">
+                  <span className="inline-flex items-center px-4 py-2 rounded-full text-sm font-semibold bg-[#C9A14A] text-white shadow-xl backdrop-blur-sm">
                     {tipo.title}
-                  </h3>
+                  </span>
+                </div>
+                {/* Botão na parte inferior */}
+                <div className="absolute bottom-0 left-0 right-0 p-6 z-10">
+                  <Button
+                    onClick={() => handleSaibaMais(tipo.path)}
+                    className="bg-[#C9A14A] hover:bg-[#B8913F] text-white text-sm font-semibold w-full shadow-lg"
+                    size="sm"
+                  >
+                    Saiba mais
+                  </Button>
                 </div>
               </div>
             );
