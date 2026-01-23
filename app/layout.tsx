@@ -80,6 +80,9 @@ export const metadata: Metadata = {
       { url: "/icon.svg", type: "image/svg+xml" },
     ],
   },
+  verification: {
+    google: "bPEUITpQl_3tYTZF2i1N5F88qw-lRJQcgCr2MVEZfEE",
+  },
 };
 
 export default function RootLayout({
