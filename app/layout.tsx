@@ -8,6 +8,7 @@ import {
   serviceSchema,
   breadcrumbSchema,
 } from "./schema";
+import { getPrioritizedKeywords } from "@/lib/seo-keywords";
 
 const spaceGrotesk = Space_Grotesk({
   variable: "--font-space-grotesk",
@@ -26,23 +27,7 @@ export const metadata: Metadata = {
   title: "Compra e Aluguel de Imóveis em Belém | Joselma Albuquerque CRECI-10611 PA/AP",
   description:
     "Corretora de imóveis em Belém, Pará. Método estruturado para compra e aluguel de imóveis novos e usados. Decisão segura, criteriosa e organizada com orientação especializada. CRECI-10611 PA/AP.",
-  keywords: [
-    "compra de imóveis Belém",
-    "aluguel de imóveis Belém",
-    "imóveis em Belém",
-    "corretora de imóveis Belém",
-    "consultoria imobiliária Belém",
-    "imóveis com segurança",
-    "imóveis novos Belém",
-    "imóveis usados Belém",
-    "imóveis para compra Pará",
-    "imóveis para alugar Pará",
-    "Joselma Albuquerque",
-    "Joselma Albuquerque CRECI-10611 PA/AP",
-    "corretora de imóveis Pará",
-    "imobiliária Belém",
-    "venda de imóveis Belém",
-  ],
+  keywords: getPrioritizedKeywords(),
   authors: [{ name: "Joselma Albuquerque", url: "https://www.joselmaalbuquerqueimv.com.br" }],
   creator: "Joselma Albuquerque CRECI-10611 PA/AP",
   publisher: "Joselma Albuquerque CRECI-10611 PA/AP",
