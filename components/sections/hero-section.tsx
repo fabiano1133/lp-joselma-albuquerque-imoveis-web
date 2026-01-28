@@ -35,10 +35,12 @@ export function HeroSection() {
               <div className="relative w-full h-full rounded-full overflow-hidden">
                 <Image 
                   src="/perfil-image-hero.jpeg" 
-                  alt="Joselma Albuquerque CRECI-10611 PA/AP - Corretora de Imóveis" 
+                  alt="Joselma Albuquerque CRECI-10611 PA/AP - Corretora de Imóveis em Belém, Pará especializada em compra e aluguel de imóveis" 
                   fill 
                   className="object-cover" 
                   style={{ objectPosition: 'center top' }}
+                  priority
+                  sizes="(max-width: 640px) 192px, (max-width: 1024px) 224px, 256px"
                 />
               </div>
             </div>
@@ -46,21 +48,34 @@ export function HeroSection() {
           
           {/* Texto */}
           <div className="flex-1 text-center lg:text-left">
+            {/* Badge de Credibilidade */}
+            <div className="flex justify-center lg:justify-start mb-4">
+              <span className="inline-flex items-center px-4 py-2 rounded-full text-sm font-semibold bg-white/10 backdrop-blur-sm text-white border border-white/20">
+                CRECI-10611 PA/AP
+              </span>
+            </div>
+            
             <h1 className="font-heading text-4xl font-bold leading-tight text-white sm:text-5xl lg:text-6xl mb-6">
-              Existe uma forma{" "}
-              <span className="text-[#C9A14A]">segura</span> e criteriosa de comprar ou alugar um imóvel em Belém.
+              Comprar ou Alugar Imóvel em Belém{" "}
+              <span className="text-[#C9A14A]">Sem Arrependimento</span>
             </h1>
-            <p className="mx-auto max-w-2xl text-xl leading-8 text-gray-100 mb-10 lg:mx-0">
-              Organizo sua decisão imobiliária em Belém, Pará, com método, transparência e orientação
-              especializada — do primeiro contato à escolha final.
+            <p className="mx-auto max-w-2xl text-lg sm:text-xl leading-7 text-gray-100 mb-8 lg:mx-0">
+              Método que elimina riscos. Análise criteriosa. Decisão segura. 
+              Do diagnóstico à escolha final.
             </p>
-            <div className="flex justify-center lg:justify-start">
+            
+            {/* Prova Social Sutil */}
+            <p className="mx-auto max-w-2xl text-sm text-gray-300 mb-8 lg:mx-0">
+              Corretora especializada em Belém, Pará
+            </p>
+            
+            <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
               <Button 
                 size="lg" 
                 onClick={scrollToForm}
-                className="bg-[#C9A14A] hover:bg-[#B8913F] text-white text-lg px-8 py-6"
+                className="bg-[#C9A14A] hover:bg-[#B8913F] text-white text-lg px-8 py-6 shadow-xl"
               >
-                Quero orientação especializada
+                Quero encontrar meu imóvel
               </Button>
             </div>
           </div>

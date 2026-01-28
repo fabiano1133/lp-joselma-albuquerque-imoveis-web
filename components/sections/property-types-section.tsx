@@ -58,10 +58,10 @@ export function TiposImoveisSection() {
       <div className="mx-auto max-w-7xl">
         <div className="text-center mb-12">
           <h2 className="font-heading text-3xl font-bold text-white sm:text-4xl lg:text-5xl mb-4">
-            Experiência consolidada em Consultoria Imobiliária em Belém, Pará
+            Imóveis à Venda e para Alugar em Belém, Pará
           </h2>
-          <p className="text-xl text-gray-200">
-            Compromisso com uma decisão segura e patrimoniada para imóveis em Belém
+          <p className="text-lg text-gray-300 max-w-2xl mx-auto">
+            Venda, aluguel, novos, usados. Análise criteriosa em todos os casos.
           </p>
         </div>
 
@@ -84,10 +84,12 @@ export function TiposImoveisSection() {
                 <div className="absolute inset-0">
                   <Image 
                     src={tipo.image} 
-                    alt={`${tipo.title} de imóveis em Belém, Pará - ${tipo.description}`}
+                    alt={`Imóveis ${tipo.title.toLowerCase()} em Belém, Pará - ${tipo.description}`}
                     fill
                     className="object-cover"
                     style={{ objectPosition: 'center' }}
+                    loading="lazy"
+                    sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
                   />
                 </div>
                 {/* Badge no canto superior direito */}
@@ -111,7 +113,7 @@ export function TiposImoveisSection() {
           })}
         </div>
         <div className="mt-12 text-center">
-          <Button size="lg" onClick={goToImoveis}>
+          <Button size="lg" onClick={goToImoveis} className="bg-[#C9A14A] hover:bg-[#B8913F] text-white">
             Ver todos os imóveis disponíveis
           </Button>
         </div>

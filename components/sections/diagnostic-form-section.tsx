@@ -78,7 +78,6 @@ export function FormularioDiagnostico() {
       }
     } catch (error) {
       // Erro inesperado - captura qualquer erro que não foi tratado pelo serviço
-      console.error("Erro ao enviar formulário:", error);
       setSubmitStatus({
         type: "error",
         message: error instanceof Error 
@@ -120,11 +119,11 @@ export function FormularioDiagnostico() {
             </div>
           </div>
           
-          <h2 className="font-heading text-3xl font-bold text-[#0A2540] sm:text-4xl lg:text-5xl mb-4">
-            Qual o imóvel perfeito para seu perfil em Belém?
+          <h2 className="font-heading text-3xl font-bold text-[#0A2540] sm:text-4xl lg:text-5xl mb-3">
+            Solicite Consultoria Imobiliária em Belém
           </h2>
           <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-            Solicite sua orientação especializada ou visite nosso escritório para um atendimento presencial
+            Preencha o formulário. Analiso seu perfil. Envio opções que fazem sentido para você.
           </p>
         </div>
 
@@ -134,13 +133,14 @@ export function FormularioDiagnostico() {
           <div className="rounded-3xl bg-white p-8 sm:p-12 shadow-xl border border-gray-100">
           <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
           <div>
-            <Label htmlFor="nome">Nome completo</Label>
+            <Label htmlFor="nome">Seu nome</Label>
             <Input
               id="nome"
               type="text"
               {...register("nome")}
               className="mt-2"
-              placeholder="Seu nome completo"
+              placeholder="Como você gostaria de ser chamado?"
+              autoComplete="name"
               aria-invalid={errors.nome ? "true" : "false"}
             />
             {errors.nome && (
@@ -151,13 +151,14 @@ export function FormularioDiagnostico() {
           </div>
 
           <div>
-            <Label htmlFor="email">E-mail</Label>
+            <Label htmlFor="email">Seu melhor e-mail</Label>
             <Input
               id="email"
               type="email"
               {...register("email")}
               className="mt-2"
               placeholder="seu@email.com"
+              autoComplete="email"
               aria-invalid={errors.email ? "true" : "false"}
             />
             {errors.email && (
@@ -168,13 +169,14 @@ export function FormularioDiagnostico() {
           </div>
 
           <div>
-            <Label htmlFor="telefone">Telefone</Label>
+            <Label htmlFor="telefone">WhatsApp (opcional)</Label>
             <Input
               id="telefone"
               type="tel"
               {...register("telefone")}
               className="mt-2"
-              placeholder="(00) 00000-0000"
+              placeholder="(91) 99999-9999"
+              autoComplete="tel"
               aria-invalid={errors.telefone ? "true" : "false"}
             />
             {errors.telefone && (
@@ -185,13 +187,13 @@ export function FormularioDiagnostico() {
           </div>
 
           <div>
-            <Label htmlFor="mensagem">Mensagem (Opcional)</Label>
+            <Label htmlFor="mensagem">O que você está buscando? (opcional)</Label>
             <Textarea
               id="mensagem"
               {...register("mensagem")}
               className="mt-2"
-              placeholder="Olá, gostaria de agendar um atendimento"
-              rows={4}
+              placeholder="Ex: Apartamento de 2 quartos para compra, próximo ao centro"
+              rows={3}
               aria-invalid={errors.mensagem ? "true" : "false"}
             />
             {errors.mensagem && (
@@ -219,11 +221,16 @@ export function FormularioDiagnostico() {
             <Button
               type="submit"
               size="lg"
-              className="w-full bg-[#C9A14A] hover:bg-[#B8913F] text-white"
+              className="w-full bg-[#C9A14A] hover:bg-[#B8913F] text-white text-lg font-semibold shadow-lg"
               disabled={isSubmitting}
             >
-              {isSubmitting ? "Enviando..." : "Solicitar orientação"}
+              {isSubmitting ? "Enviando..." : "Quero ver opções de imóveis"}
             </Button>
+            
+            {/* Garantia de Segurança */}
+            <p className="text-xs text-center text-gray-500 mt-3">
+              Seus dados estão seguros. Não envio spam. Respeito sua privacidade.
+            </p>
             <div className="text-center">
               <button
                 type="button"
@@ -248,9 +255,9 @@ export function FormularioDiagnostico() {
               </h3>
             </div>
 
-            <p className="text-gray-200 mb-8 leading-relaxed">
-              Prefere um atendimento presencial? Visite nosso escritório em Belém. 
-              Oferecemos um ambiente acolhedor e organizado para discutir seu projeto imobiliário com segurança e método.
+            <p className="text-gray-200 mb-8 leading-relaxed text-base">
+              Prefere conversar pessoalmente? Visite nosso escritório em Belém. 
+              Ambiente profissional. Atendimento humanizado. Mesma qualidade de análise.
             </p>
 
             {/* Informações do Escritório */}
@@ -325,24 +332,24 @@ export function FormularioDiagnostico() {
 
             {/* Benefícios do Atendimento Presencial */}
             <div className="pt-6 border-t border-[#C9A14A]/20">
-              <p className="text-sm font-semibold text-[#C9A14A] mb-4">Por que escolher atendimento presencial?</p>
-              <ul className="space-y-3">
+              <p className="text-sm font-semibold text-[#C9A14A] mb-4">Vantagens do atendimento presencial</p>
+              <ul className="space-y-2.5">
                 <li className="flex items-start gap-3">
                   <div className="w-1.5 h-1.5 rounded-full bg-[#C9A14A] mt-2 flex-shrink-0"></div>
                   <p className="text-sm text-gray-200">
-                    <span className="font-semibold">Segurança:</span> Documentos verificados pessoalmente
+                    Documentos verificados na hora
                   </p>
                 </li>
                 <li className="flex items-start gap-3">
                   <div className="w-1.5 h-1.5 rounded-full bg-[#C9A14A] mt-2 flex-shrink-0"></div>
                   <p className="text-sm text-gray-200">
-                    <span className="font-semibold">Clareza:</span> Discussão detalhada de cada etapa do processo
+                    Conversa detalhada sobre cada etapa
                   </p>
                 </li>
                 <li className="flex items-start gap-3">
                   <div className="w-1.5 h-1.5 rounded-full bg-[#C9A14A] mt-2 flex-shrink-0"></div>
                   <p className="text-sm text-gray-200">
-                    <span className="font-semibold">Confiança:</span> Ambiente profissional e organizado
+                    Ambiente profissional e organizado
                   </p>
                 </li>
               </ul>

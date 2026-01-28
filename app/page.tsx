@@ -6,6 +6,7 @@ import { TiposImoveisSection } from "@/components/sections/property-types-sectio
 import { FormularioDiagnostico } from "@/components/sections/diagnostic-form-section";
 import { ManifestoSection } from "@/components/sections/manifesto-section";
 import { FooterSection } from "@/components/sections/footer-section";
+import { SeoContentSection } from "@/components/sections/seo-content-section";
 
 export default function Home() {
   return (
@@ -22,6 +23,7 @@ export default function Home() {
         </article>
         <FormularioDiagnostico />
         <ManifestoSection />
+        <SeoContentSection />
       </main>
       <FooterSection />
     </>

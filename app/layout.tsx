@@ -7,6 +7,8 @@ import {
   personSchema,
   serviceSchema,
   breadcrumbSchema,
+  faqSchema,
+  articleSchema,
 } from "./schema";
 import { getPrioritizedKeywords } from "@/lib/seo-keywords";
 import { GA_MEASUREMENT_ID } from "@/lib/analytics";
@@ -23,68 +25,90 @@ const manrope = Manrope({
   weight: ["400", "500", "600", "700"],
 });
 
-export const metadata: Metadata = {
-  metadataBase: new URL("https://www.joselmaalbuquerqueimv.com.br"),
-  title: "Compra e Aluguel de Imóveis em Belém | Joselma Albuquerque CRECI-10611 PA/AP",
-  description:
-    "Corretora de imóveis em Belém, Pará. Método estruturado para compra e aluguel de imóveis novos e usados. Decisão segura, criteriosa e organizada com orientação especializada. CRECI-10611 PA/AP.",
-  keywords: getPrioritizedKeywords(),
-  authors: [{ name: "Joselma Albuquerque", url: "https://www.joselmaalbuquerqueimv.com.br" }],
-  creator: "Joselma Albuquerque CRECI-10611 PA/AP",
-  publisher: "Joselma Albuquerque CRECI-10611 PA/AP",
-  robots: {
-    index: true,
-    follow: true,
-    googleBot: {
+// Palavras-chave principais para SEO
+const PRIMARY_KEYWORD = "comprar ou alugar imóvel em Belém";
+const SECONDARY_KEYWORDS = [
+  "imóveis em Belém",
+  "corretora de imóveis Belém",
+  "consultoria imobiliária Belém",
+  "apartamento em Belém",
+  "casa em Belém",
+  "imóveis à venda Belém",
+  "imóveis para alugar Belém",
+];
+
+export function generateMetadata(): Metadata {
+  const title = `${PRIMARY_KEYWORD} | Joselma Albuquerque CRECI-10611 PA/AP`;
+  const description =
+    `Corretora de imóveis em Belém, Pará. Especializada em compra e aluguel de imóveis novos e usados. Método estruturado que elimina riscos. Análise criteriosa. Decisão segura. CRECI-10611 PA/AP.`;
+  const url = "https://www.joselmaalbuquerqueimv.com.br";
+  const ogImage = `${url}/perfil-image-hero.jpeg`;
+
+  return {
+    metadataBase: new URL(url),
+    title,
+    description,
+    keywords: getPrioritizedKeywords(),
+    authors: [{ name: "Joselma Albuquerque", url }],
+    creator: "Joselma Albuquerque CRECI-10611 PA/AP",
+    publisher: "Joselma Albuquerque CRECI-10611 PA/AP",
+    robots: {
       index: true,
       follow: true,
-      "max-video-preview": -1,
-      "max-image-preview": "large",
-      "max-snippet": -1,
-    },
-  },
-  openGraph: {
-    type: "website",
-    locale: "pt_BR",
-    url: "https://www.joselmaalbuquerqueimv.com.br",
-    title: "Compra e Aluguel de Imóveis em Belém | Joselma Albuquerque CRECI-10611 PA/AP",
-    description:
-      "Corretora de imóveis em Belém, Pará. Método estruturado para compra e aluguel de imóveis novos e usados. Decisão segura e criteriosa.",
-    siteName: "Joselma Albuquerque Imóveis",
-    images: [
-      {
-        url: "/perfil_1.jpg",
-        width: 1200,
-        height: 630,
-        alt: "Joselma Albuquerque CRECI-10611 PA/AP - Corretora de Imóveis em Belém",
+      googleBot: {
+        index: true,
+        follow: true,
+        "max-video-preview": -1,
+        "max-image-preview": "large",
+        "max-snippet": -1,
       },
-    ],
-  },
-  twitter: {
-    card: "summary_large_image",
-    title: "Compra e Aluguel de Imóveis em Belém | Joselma Albuquerque",
-    description:
-      "Corretora de imóveis em Belém, Pará. Método estruturado para decisão imobiliária segura e criteriosa.",
-    images: ["/perfil_1.jpg"],
-  },
-  alternates: {
-    canonical: "https://www.joselmaalbuquerqueimv.com.br",
-  },
-  category: "Real Estate",
-  classification: "Business",
-  icons: {
-    icon: [
-      { url: "/icon.svg", type: "image/svg+xml" },
-      { url: "/favicon.svg", type: "image/svg+xml" },
-    ],
-    apple: [
-      { url: "/icon.svg", type: "image/svg+xml" },
-    ],
-  },
-  verification: {
-    google: "bPEUITpQl_3tYTZF2i1N5F88qw-lRJQcgCr2MVEZfEE",
-  },
-};
+    },
+    openGraph: {
+      type: "website",
+      locale: "pt_BR",
+      url,
+      title,
+      description,
+      siteName: "Joselma Albuquerque Imóveis",
+      images: [
+        {
+          url: ogImage,
+          width: 1200,
+          height: 630,
+          alt: "Joselma Albuquerque CRECI-10611 PA/AP - Corretora de Imóveis em Belém, Pará",
+          type: "image/jpeg",
+        },
+      ],
+    },
+    twitter: {
+      card: "summary_large_image",
+      title,
+      description,
+      images: [ogImage],
+      creator: "@joselmaalbuquerqueimoveis",
+    },
+    alternates: {
+      canonical: url,
+    },
+    category: "Real Estate",
+    classification: "Business",
+    icons: {
+      icon: [
+        { url: "/icon.svg", type: "image/svg+xml" },
+        { url: "/favicon.svg", type: "image/svg+xml" },
+      ],
+      apple: [
+        { url: "/icon.svg", type: "image/svg+xml" },
+      ],
+    },
+    verification: {
+      google: "bPEUITpQl_3tYTZF2i1N5F88qw-lRJQcgCr2MVEZfEE",
+    },
+    other: {
+      "google-site-verification": "bPEUITpQl_3tYTZF2i1N5F88qw-lRJQcgCr2MVEZfEE",
+    },
+  };
+}
 
 export default function RootLayout({
   children,
@@ -127,6 +151,22 @@ export default function RootLayout({
           strategy="beforeInteractive"
           dangerouslySetInnerHTML={{
             __html: JSON.stringify(breadcrumbSchema),
+          }}
+        />
+        <Script
+          id="faq-schema"
+          type="application/ld+json"
+          strategy="beforeInteractive"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify(faqSchema),
+          }}
+        />
+        <Script
+          id="article-schema"
+          type="application/ld+json"
+          strategy="beforeInteractive"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify(articleSchema),
           }}
         />
         
