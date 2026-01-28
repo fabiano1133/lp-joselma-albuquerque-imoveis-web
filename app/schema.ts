@@ -5,7 +5,7 @@ export const localBusinessSchema = {
   "@id": "https://www.joselmaalbuquerqueimv.com.br#business",
   name: "Joselma Albuquerque Imóveis",
   description:
-    "Corretora de imóveis em Belém, Pará. Especializada em compra, venda e aluguel de imóveis novos e usados com método estruturado e orientação especializada.",
+    "Corretora de imóveis em Belém, Pará. Especializada em compra, venda e aluguel de imóveis novos e usados (apartamentos, casas, sobrados, terrenos) com método estruturado, análise criteriosa de documentação, verificação de riscos jurídicos e orientação especializada. Atendimento em Umarizal, Centro, Batista Campos, Nazaré e toda Belém.",
   image: [
     "https://www.joselmaalbuquerqueimv.com.br/perfil-image-hero.jpeg",
     "https://www.joselmaalbuquerqueimv.com.br/perfil-image-manifesto.jpeg",
@@ -92,7 +92,7 @@ export const personSchema = {
   name: "Joselma Albuquerque",
   jobTitle: "Corretora de Imóveis",
   description:
-    "Corretora de imóveis registrada no CRECI-10611 PA/AP, especializada em consultoria imobiliária com método estruturado para compra, venda e aluguel de imóveis em Belém, Pará.",
+    "Corretora de imóveis registrada no CRECI-10611 PA/AP, especializada em consultoria imobiliária com método estruturado para compra, venda e aluguel de imóveis em Belém, Pará. Expertise em análise de documentação, avaliação imobiliária, financiamento, investimento imobiliário e segurança jurídica.",
   image: [
     "https://www.joselmaalbuquerqueimv.com.br/perfil-image-hero.jpeg",
     "https://www.joselmaalbuquerqueimv.com.br/perfil-image-manifesto.jpeg",
@@ -112,6 +112,7 @@ export const personSchema = {
     "@id": "https://www.joselmaalbuquerqueimv.com.br#business",
   },
   knowsAbout: [
+    // Serviços Principais
     "Compra de Imóveis",
     "Venda de Imóveis",
     "Aluguel de Imóveis",
@@ -120,18 +121,55 @@ export const personSchema = {
     "Documentação Imobiliária",
     "Financiamento Imobiliário",
     "Avaliação Imobiliária",
+    "Corretagem Imobiliária",
+    "Intermediação Imobiliária",
+    
+    // Tipos de Imóveis
     "Apartamento",
     "Casa",
+    "Sobrado",
+    "Kitnet",
+    "Studio",
+    "Cobertura",
+    "Terreno",
+    "Sala Comercial",
+    "Loja",
+    "Galpão",
     "Imóvel Residencial",
     "Imóvel Comercial",
     "Imóvel Novo",
     "Imóvel Usado",
-    "Investimento Imobiliário",
-    "Corretagem Imobiliária",
+    "Imóvel na Planta",
+    "Lançamento Imobiliário",
+    
+    // Localização
     "Imóveis em Belém",
     "Imóveis no Pará",
+    "Imóveis em Umarizal",
+    "Imóveis no Centro de Belém",
+    "Imóveis em Batista Campos",
+    "Imóveis em Nazaré Belém",
+    "Imóveis no Marco Belém",
+    
+    // Ações e Serviços
     "Comprar imóvel em Belém",
     "Alugar imóvel em Belém",
+    "Vender imóvel em Belém",
+    "Corretora de imóveis Belém",
+    "Corretor de imóveis Belém",
+    "Imobiliária Belém",
+    
+    // Investimento e Financiamento
+    "Investimento Imobiliário",
+    "Financiamento Imobiliário Belém",
+    "Consórcio Imobiliário",
+    "FGTS para compra de imóvel",
+    
+    // Especialidades
+    "Análise de Documentação Imobiliária",
+    "Verificação de Débitos Imobiliários",
+    "Avaliação de Imóveis Belém",
+    "Segurança Jurídica Imobiliária",
   ],
   memberOf: {
     "@type": "Organization",
@@ -150,7 +188,7 @@ export const serviceSchema = {
   "@id": "https://www.joselmaalbuquerqueimv.com.br#service",
   name: "Consultoria Imobiliária - Método Decisão Imobiliária Estruturada",
   description:
-    "Serviço de consultoria imobiliária especializada para compra, venda e aluguel de imóveis em Belém, Pará. Método estruturado que garante decisão segura, criteriosa e organizada.",
+    "Serviço de consultoria imobiliária especializada para compra, venda e aluguel de imóveis (apartamentos, casas, sobrados, terrenos, salas comerciais) em Belém, Pará. Método estruturado que garante decisão segura, criteriosa e organizada. Análise de documentação, verificação de débitos, avaliação de riscos jurídicos e financeiros.",
   provider: {
     "@id": "https://www.joselmaalbuquerqueimv.com.br#business",
   },
@@ -267,10 +305,67 @@ export const articleSchema = {
     "https://www.joselmaalbuquerqueimv.com.br/perfil-image-hero.jpeg",
   ],
   keywords: [
+    // Primárias com Belém
     "comprar imóvel em Belém",
     "alugar imóvel em Belém",
     "corretora de imóveis Belém",
+    "corretora de imóveis em Belém",
     "consultoria imobiliária Belém",
+    "consultoria imobiliária em Belém",
     "imóveis em Belém",
+    "imóveis em Belém PA",
+    "imóveis no Pará",
+    
+    // Tipos de Imóveis + Belém
+    "apartamento em Belém",
+    "casa em Belém",
+    "sobrado em Belém",
+    "kitnet em Belém",
+    "terreno em Belém",
+    "sala comercial Belém",
+    
+    // Ações + Belém
+    "comprar apartamento Belém",
+    "alugar apartamento Belém",
+    "comprar casa Belém",
+    "alugar casa Belém",
+    "vender imóvel Belém",
+    "imóveis à venda Belém",
+    "imóveis para alugar Belém",
+    
+    // Bairros de Belém
+    "imóveis Umarizal Belém",
+    "imóveis Centro Belém",
+    "imóveis Batista Campos",
+    "imóveis Nazaré Belém",
+    "imóveis Marco Belém",
+    "apartamento Umarizal",
+    "casa Batista Campos",
+    
+    // Serviços + Belém
+    "avaliação imobiliária Belém",
+    "financiamento imobiliário Belém",
+    "documentação imobiliária Belém",
+    "corretor de imóveis Belém",
+    "imobiliária Belém",
+    
+    // Longa Cauda
+    "como comprar imóvel em Belém",
+    "como alugar imóvel em Belém",
+    "melhor corretora de imóveis Belém",
+    "comprar imóvel usado Belém",
+    "comprar imóvel novo Belém",
+    "alugar imóvel sem fiador Belém",
+    "investir em imóveis Belém",
+    
+    // Genéricas (sem localização)
+    "comprar imóvel",
+    "alugar imóvel",
+    "corretora de imóveis",
+    "consultoria imobiliária",
+    "imóveis à venda",
+    "imóveis para alugar",
   ],
+  inLanguage: "pt-BR",
+  articleSection: "Consultoria Imobiliária",
 };

@@ -43,6 +43,9 @@ export function generateMetadata(): Metadata {
     `Corretora de imóveis em Belém, Pará. Especializada em compra e aluguel de imóveis novos e usados. Método estruturado que elimina riscos. Análise criteriosa. Decisão segura. CRECI-10611 PA/AP.`;
   const url = "https://www.joselmaalbuquerqueimv.com.br";
   const ogImage = `${url}/perfil-image-hero.jpeg`;
+  const now = new Date();
+  const publishedTime = now.toISOString();
+  const modifiedTime = now.toISOString();
 
   return {
     metadataBase: new URL(url),
@@ -106,6 +109,8 @@ export function generateMetadata(): Metadata {
     },
     other: {
       "google-site-verification": "bPEUITpQl_3tYTZF2i1N5F88qw-lRJQcgCr2MVEZfEE",
+      "article:published_time": publishedTime,
+      "article:modified_time": modifiedTime,
     },
   };
 }
