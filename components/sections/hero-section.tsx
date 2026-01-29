@@ -59,10 +59,24 @@ export function HeroSection() {
               Comprar ou Alugar Imóvel em Belém{" "}
               <span className="text-[#C9A14A]">Sem Arrependimento</span>
             </h1>
-            <p className="mx-auto max-w-2xl text-lg sm:text-xl leading-7 text-gray-100 mb-8 lg:mx-0">
-              Método que elimina riscos. Análise criteriosa. Decisão segura. 
-              Do diagnóstico à escolha final.
-            </p>
+            <ul className="mx-auto max-w-2xl text-lg sm:text-xl leading-8 text-gray-100 mb-8 lg:mx-0 space-y-2 list-none">
+              <li className="flex items-center gap-3">
+                <span className="w-1.5 h-1.5 rounded-full bg-[#C9A14A] shrink-0" aria-hidden />
+                Método que elimina riscos.
+              </li>
+              <li className="flex items-center gap-3">
+                <span className="w-1.5 h-1.5 rounded-full bg-[#C9A14A] shrink-0" aria-hidden />
+                Análise criteriosa.
+              </li>
+              <li className="flex items-center gap-3">
+                <span className="w-1.5 h-1.5 rounded-full bg-[#C9A14A] shrink-0" aria-hidden />
+                Decisão segura.
+              </li>
+              <li className="flex items-center gap-3">
+                <span className="w-1.5 h-1.5 rounded-full bg-[#C9A14A] shrink-0" aria-hidden />
+                Do diagnóstico à escolha final.
+              </li>
+            </ul>
             
             {/* Prova Social Sutil */}
             <p className="mx-auto max-w-2xl text-sm text-gray-300 mb-8 lg:mx-0">

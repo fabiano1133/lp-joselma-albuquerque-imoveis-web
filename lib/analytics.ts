@@ -41,6 +41,27 @@ export function trackButtonClick(buttonName: string) {
   trackEvent("click", "button", buttonName);
 }
 
+/** Métodos de compartilhamento (usado no botão flutuante) */
+export type ShareMethod = "whatsapp" | "copy_link" | "native";
+
+/**
+ * Envia evento de compartilhamento para o dataLayer (GTM) e para o gtag (GA4).
+ * No GTM: crie um Acionador → Tipo "Evento personalizado" → Nome do evento: "share_click".
+ * Use a variável "share_method" (Variável do Layer de Dados) para segmentar ou enviar ao Google Ads.
+ */
+export function trackShare(method: ShareMethod) {
+  if (typeof window === "undefined") return;
+  window.dataLayer = window.dataLayer || [];
+  window.dataLayer.push({
+    event: "share_click",
+    share_method: method,
+    event_category: "share",
+    event_label: method,
+    page_url: window.location.href,
+  });
+  trackEvent("share", "share", method);
+}
+
 // Função para trackear visualizações de seções
 export function trackSectionView(sectionName: string) {
   trackEvent("view", "section", sectionName);

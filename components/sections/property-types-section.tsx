@@ -24,7 +24,7 @@ export function TiposImoveisSection() {
       description:
         "Imóveis novos e usados para compra. Análise criteriosa de cada opção.",
       icon: ShoppingCart,
-      image: "/venda.jpg", // Adicione a imagem na pasta public
+      image: "/venda.jpg",
       path: "imoveis/a-venda",
     },
     {
@@ -40,7 +40,7 @@ export function TiposImoveisSection() {
       description:
         "Lançamentos e imóveis na planta. Análise de construtora e projeto.",
       icon: Building2,
-      image: "/novos.jpg", // Adicione a imagem na pasta public
+      image: "/novos.jpg",
       path: "apartamento-belem-2-quartos-70-m/AP0088-JOSP",
     },
     {
@@ -48,7 +48,7 @@ export function TiposImoveisSection() {
       description:
         "Imóveis prontos para morar. Verificação completa de documentação.",
       icon: Home,
-      image: "/usados.jpg", // Adicione a imagem na pasta public
+      image: "/usados.jpg",
       path: "imoveis/a-venda?caracteristicas=em-condominio-fechado",
     },
   ];

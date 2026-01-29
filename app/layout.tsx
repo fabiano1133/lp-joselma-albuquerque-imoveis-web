@@ -12,6 +12,7 @@ import {
 } from "./schema";
 import { getPrioritizedKeywords } from "@/lib/seo-keywords";
 import { GA_MEASUREMENT_ID } from "@/lib/analytics";
+import { FloatingShareButton } from "@/components/floating-share-button";
 
 const spaceGrotesk = Space_Grotesk({
   variable: "--font-space-grotesk",
@@ -199,6 +200,8 @@ export default function RootLayout({
         />
         
         {children}
+        {/* Botão flutuante para compartilhar a página (estratégia de marketing) */}
+        <FloatingShareButton />
       </body>
     </html>
   );
