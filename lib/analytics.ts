@@ -1,5 +1,5 @@
 // Google Analytics Configuration
-export const GA_MEASUREMENT_ID = "G-YBRHVE3CRT";
+export const GA_MEASUREMENT_ID = "G-VC23VP75EM";
 
 // Função para inicializar o Google Analytics
 export function initGA() {
